@@ -57,19 +57,18 @@ export default function Products() {
 
   return (
     <>
-    <div className="  d-flex justify-content-center align-items-center m-md-5 m-3 mb-md-2 ">
-          <i class="fa-solid fa-magnifying-glass fs-5 text-main shado"></i>
-            <input
-              placeholder="Type product name to search ..."
-              type="text"
-              className="form-control m-3 shadow"
-              value={input}
-              onChange={(e) => handleChange(e.target.value)}
-            />
-          </div>
+      <div className="  d-flex justify-content-center align-items-center m-md-5 m-3 mb-md-2 ">
+        <i class="fa-solid fa-magnifying-glass fs-5 text-main shado"></i>
+        <input
+          placeholder="Type product name to search ..."
+          type="text"
+          className="form-control m-3 shadow"
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </div>
       {!input ? (
         <div className="container-flaod  mt-md-2 mx-md-5 m-1 ">
-          
           <div className="row g-3 mt-1">
             {data?.data?.data.map((item) => {
               return (
@@ -83,9 +82,7 @@ export default function Products() {
           </div>
         </div>
       ) : (
-        <div className="container-flaod  mt-md-2 mx-md-5 m-1 ">
-          
-
+        <div className="container-flaod  mt-md-2 mx-md-5 m-3 ">
           <div className="row g-3">
             {search.map((item) => {
               return (

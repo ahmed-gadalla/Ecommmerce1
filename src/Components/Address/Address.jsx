@@ -14,6 +14,7 @@ export default function Address() {
     let data = await Pay(id, values);
     console.log(data);
     if (data.status == "success") {
+      console.log(data.session.url);
       window.location.href = data.session.url;
     }
   }

@@ -15,7 +15,7 @@ export default function CategoryDetails() {
   if (isLoading) return <IsLoading />;
   return (
     <>
-      <div className="container-flaod  mt-5 mx-lg-5 m-2  row g-3">
+      <div className="container-flaod  mt-5 mx-lg-5 m-3  row g-3">
         {data?.data?.data
           .filter((product) => product.category._id === x.id)
           .map((filteredProduct) => (
