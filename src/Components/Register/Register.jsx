@@ -34,15 +34,15 @@ export default function Register() {
       email: Yup.string().email().required(),
       password: Yup.string()
         .matches(
-          /^[A-Z][a-zA-Z0-9@]{6,}$/,
-          "password must be 7 characters or more start with capital letter"
+          /^[a-zA-Z][a-zA-Z0-9@]{5,}$/,
+          "password must be 6 characters or more "
         )
         .required(),
       rePassword: Yup.string()
         .oneOf([Yup.ref("password")], "password must match")
         .required(),
       phone: Yup.string()
-        .matches(/^01[0125][0-9]{8}$/)
+        .matches(/^01[0125][0-9]{8}$/, "phone must be egyption num")
         .required(),
     });
     return schema;
@@ -101,6 +101,22 @@ export default function Register() {
             ""
           )}
 
+          <label htmlFor="phone">Phone:</label>
+          <input
+            onBlur={signup.handleBlur}
+            onChange={signup.handleChange}
+            type="tel"
+            name="phone"
+            className="form-control mb-3 "
+            id="phone"
+          />
+
+          {signup.errors.phone && signup.touched.phone ? (
+            <div className="alert alert-danger">{signup.errors.phone}</div>
+          ) : (
+            ""
+          )}
+
           <label htmlFor="password">Password:</label>
           <input
             onBlur={signup.handleBlur}
@@ -129,22 +145,6 @@ export default function Register() {
 
           {signup.errors.rePassword && signup.touched.rePassword ? (
             <div className="alert alert-danger">{signup.errors.rePassword}</div>
-          ) : (
-            ""
-          )}
-
-          <label htmlFor="phone">Phone:</label>
-          <input
-            onBlur={signup.handleBlur}
-            onChange={signup.handleChange}
-            type="tel"
-            name="phone"
-            className="form-control mb-3 "
-            id="phone"
-          />
-
-          {signup.errors.phone && signup.touched.phone ? (
-            <div className="alert alert-danger">{signup.errors.phone}</div>
           ) : (
             ""
           )}

@@ -36,8 +36,8 @@ export default function Signin() {
       email: Yup.string().email().required(),
       password: Yup.string()
         .matches(
-          /^[A-Z][a-zA-Z0-9@]{6,}$/,
-          "password must be 7 characters or more start with capital letter"
+          /^[a-zA-Z][a-zA-Z0-9@]{6,}$/,
+          "password must be 6 characters or more "
         )
         .required(),
     });
